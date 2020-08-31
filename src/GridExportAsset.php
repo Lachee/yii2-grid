@@ -24,7 +24,7 @@ class GridExportAsset extends AssetBundle
      */
     public function init()
     {
-        $this->depends = array_merge(['kartik\dialog\DialogAsset'], $this->depends);
+        //$this->depends = array_merge(['kartik\dialog\DialogAsset'], $this->depends);
         $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('js', ['js/kv-grid-export']);
         parent::init();
