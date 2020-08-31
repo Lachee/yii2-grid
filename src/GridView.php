@@ -13,7 +13,7 @@ use Closure;
 use kartik\base\BootstrapInterface;
 use kartik\base\BootstrapTrait;
 use kartik\base\Config;
-use kartik\dialog\Dialog;
+//use kartik\dialog\Dialog;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\grid\Column;
@@ -366,6 +366,7 @@ class GridView extends YiiGridView implements BootstrapInterface
      * @var array configuration settings for the Krajee dialog widget that will be used to render alerts and
      * confirmation dialog prompts
      * @see http://demos.krajee.com/dialog
+     * @deprecated dialogs have been removed.
      */
     public $krajeeDialogSettings = [];
 
@@ -2195,7 +2196,7 @@ HTML;
                 'mode' => $this->_isShowAll ? 'all' : 'page',
                 'msg' => ArrayHelper::getValue($this->toggleDataOptions, 'confirmMsg', ''),
                 'lib' => new JsExpression(
-                    ArrayHelper::getValue($this->krajeeDialogSettings, 'libName', 'krajeeDialog')
+                    //ArrayHelper::getValue($this->krajeeDialogSettings, 'libName', 'krajeeDialog')
                 ),
             ]
         );
@@ -2216,7 +2217,7 @@ HTML;
         if ($this->bootstrap) {
             GridViewAsset::register($view);
         }
-        Dialog::widget($this->krajeeDialogSettings);
+        //Dialog::widget($this->krajeeDialogSettings);
         $gridId = $this->options['id'];
         $NS = '.' . str_replace('-', '_', $gridId);
         if ($this->export !== false && is_array($this->export) && !empty($this->export)) {
@@ -2256,7 +2257,7 @@ HTML;
                 $view->registerJs("var {$genOptsVar}={$genOpts};");
                 $expOpts = Json::encode(
                     [
-                        'dialogLib' => ArrayHelper::getValue($this->krajeeDialogSettings, 'libName', 'krajeeDialog'),
+                        //'dialogLib' => ArrayHelper::getValue($this->krajeeDialogSettings, 'libName', 'krajeeDialog'),
                         'gridOpts' => new JsExpression($gridOptsVar),
                         'genOpts' => new JsExpression($genOptsVar),
                         'alertMsg' => ArrayHelper::getValue($setting, 'alertMsg', false),
